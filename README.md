@@ -5,3 +5,4 @@ with source code transcripted for convenience.
 
  - http://www.shell-storm.org/blog/Return-Oriented-Programming-and-ROPgadget-tool/
  - http://tk-blog.blogspot.fr/2009/02/relro-not-so-well-known-memory.html
+ - http://xorl.wordpress.com/2010/10/14/linux-glibc-stack-canary-values/
