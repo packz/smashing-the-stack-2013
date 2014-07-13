@@ -35,7 +35,7 @@
 void encrypt(char *buffer, int key) {
     int len, i;
     len = strlen(SECRET);
-    for (i=0; i<len; i++)
+    for (i = 0 ; i < len ; i++)
         buffer[i] ^= key;
 }
 int check_code(char *data, int size) {
@@ -45,10 +45,10 @@ int check_code(char *data, int size) {
     return strncmp(buffer, SECRET, strlen(SECRET));
 }
 int main() {
+    char buffer[512];
     int sockfd, sock_newfd, optval = 1;
     struct sockaddr_in addr, serv_addr;
     int sin_size = sizeof(struct sockaddr_in), bsize;
-    char buffer[512];
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         perror("socket");
         exit(errno);
