@@ -69,6 +69,7 @@ uint32_t get_libc_code_base_address(int pid, const char* cmdname) {
     return libc_address;
 }
 
+#define PROMPT_IN " [<] "
 void write_to_process(char* buffer, size_t size) {
     int result;
     result = write(pipe_out2in[1], buffer, size);
@@ -76,7 +77,7 @@ void write_to_process(char* buffer, size_t size) {
         perror(" [E]");
     }
 
-    printf(" [>] ");
+    write(STDOUT_FILENO, PROMPT_IN, strlen(PROMPT_IN));
     write(STDOUT_FILENO, buffer, size);
     printf("\n");
 }
@@ -214,8 +215,9 @@ int main(int argc, char* argv[]) {
     char buffer[256];
     int count = read(pipe_in2out[0], buffer, 24);
     buffer[count] = '\0';
-    fprintf(stderr, "[->] %s\n", buffer);
+    fprintf(stderr, " [>] %s\n", buffer);
 
+    fprintf(stderr, " [press RETURN key to continue] if you want to debug the injection attach it from gdb");
     getchar();
 
     char* input = prepare_paylod(pid);
@@ -229,7 +231,7 @@ int main(int argc, char* argv[]) {
         perror("wriote()");
     }
     buffer[count] = '\0';
-    fprintf(stderr, "[->] %s\n", buffer);
+    fprintf(stderr, " [>] %s\n", buffer);
 
 
     return 0;
